@@ -1,9 +1,9 @@
-#include "MapFrameInfo.h"
+#include "PictureFrameInfo.h"
 
-CMapFrameInfo::CMapFrameInfo()
+PictureFrameInfo::PictureFrameInfo()
 {
-	CMapFrameInfo::MapCode = "";
-	CMapFrameInfo::MapScale = -1;
+	PictureFrameInfo::MapCode = "";
+	PictureFrameInfo::MapScale = -1;
 	dL100 = 6.0;
 	dB100 = 4.0;
 	dL50 = 3.0;
@@ -20,10 +20,10 @@ CMapFrameInfo::CMapFrameInfo()
 	dB1 = 1. / 24.0;
 }
 
-CMapFrameInfo::CMapFrameInfo(QString MapCode, int MapScale)
+PictureFrameInfo::PictureFrameInfo(QString MapCode, int MapScale)
 {
-	CMapFrameInfo::MapCode = MapCode;
-	CMapFrameInfo::MapScale = MapScale;
+	PictureFrameInfo::MapCode = MapCode;
+	PictureFrameInfo::MapScale = MapScale;
 
 	//各种比例尺图幅经差、纬差，单位为度
 	dL100 = 6.0;
@@ -42,12 +42,12 @@ CMapFrameInfo::CMapFrameInfo(QString MapCode, int MapScale)
 	dB1 = 1. / 24.0;
 }
 
-CMapFrameInfo::~CMapFrameInfo()
+PictureFrameInfo::~PictureFrameInfo()
 {
 }
 
 
-double CMapFrameInfo::DMS2DEG(double T0)
+double PictureFrameInfo::DMS2DEG(double T0)
 {
 	double T;
 	int D, M;
@@ -62,7 +62,7 @@ double CMapFrameInfo::DMS2DEG(double T0)
 	return DEG;
 }
 
-double CMapFrameInfo::DEG2DMS(double T0)
+double PictureFrameInfo::DEG2DMS(double T0)
 {
 	//接近0的角度，直接返回0.000000
 	if (T0 < 1e-8)
@@ -105,7 +105,7 @@ double CMapFrameInfo::DEG2DMS(double T0)
 	return dAngleDms;
 }
 
-void CMapFrameInfo::MapCode2LB(QString MapCode, int MapCodeScale)
+void PictureFrameInfo::MapCode2LB(QString MapCode, int MapCodeScale)
 {
 	int   TH100, TL100;
 	double L100, B100;
@@ -233,7 +233,7 @@ void CMapFrameInfo::MapCode2LB(QString MapCode, int MapCodeScale)
 	mB4 = mB1 + dB;
 }
 
-void CMapFrameInfo::NeweMapCode2LB(QString NewMapCode, int MapCodeScale)
+void PictureFrameInfo::NeweMapCode2LB(QString NewMapCode, int MapCodeScale)
 {
 	int   TH100, TL100;
 	int   TH, TL;
@@ -301,7 +301,7 @@ void CMapFrameInfo::NeweMapCode2LB(QString NewMapCode, int MapCodeScale)
 	mB4 = mB1 + dB;
 }
 
-QString CMapFrameInfo::LB2MapCode(double L, double B, int MapCodeScale, bool isNewMapCode, bool isFirstLetter)
+QString PictureFrameInfo::LB2MapCode(double L, double B, int MapCodeScale, bool isNewMapCode, bool isFirstLetter)
 {
 	int N, Row, Col;
 	QString MapCode100, MapCode50, MapCode25, MapCode10;
@@ -467,7 +467,7 @@ QString CMapFrameInfo::LB2MapCode(double L, double B, int MapCodeScale, bool isN
 		return MapCode;
 }
 
-void CMapFrameInfo::Number2dLdB(int xh, int dn, double dL, double dB)
+void PictureFrameInfo::Number2dLdB(int xh, int dn, double dL, double dB)
 {
 	int Th, Tl;
 
@@ -480,6 +480,6 @@ void CMapFrameInfo::Number2dLdB(int xh, int dn, double dL, double dB)
 	}
 	Tl = Tl - 1;
 
-	CMapFrameInfo::dL = dL*Tl;
-	CMapFrameInfo::dB = dB*Th;
+	PictureFrameInfo::dL = dL*Tl;
+	PictureFrameInfo::dB = dB*Th;
 }

@@ -8,13 +8,13 @@
 #include "math.h"
 #include <QMessageBox>
 
-class CMapFrameInfo
+class PictureFrameInfo
 {
 public:
-	CMapFrameInfo();
-	~CMapFrameInfo();
+	PictureFrameInfo();
+	~PictureFrameInfo();
 
-	CMapFrameInfo(QString MapCode, int MapScale = 5);
+	PictureFrameInfo(QString MapCode, int MapScale = 5);
 
 	double dL, dB;
 	double mL1, mB1;                   //    4---------3

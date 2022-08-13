@@ -2,16 +2,16 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QWidget>
-#include "ui_UI_MapFrameTool.h"
-#include "MapFrameInfo.h"
+#include "PictureFrameInfo.h"
+#include "ui_PictureFrame.h"
 
-class UI_MapFrameTool : public QMainWindow
+class PictureFrame : public QMainWindow
 {
 	Q_OBJECT
 
 public:
-	UI_MapFrameTool(QWidget* parent = 0, Qt::WindowFlags f = 0);
-	~UI_MapFrameTool();
+	PictureFrame(QWidget* parent = 0, Qt::WindowFlags f = 0);
+	~PictureFrame();
 	int m_iTransStyle, m_iMapScale;
 	double	m_dCenterLY;
 	double	m_dCenterBX;
@@ -24,7 +24,7 @@ public:
 	double	m_dFrameLY3;
 	double	m_dFrameLY4;
 	bool m_bUseNewMapCode;
-	CMapFrameInfo Mapframeinfo;
+	PictureFrameInfo Mapframeinfo;
 	private slots:
 
 	void slot_ButtonOK();
@@ -54,5 +54,5 @@ public:
 	void ClearMapTabCoordCtrlData();
 	
 private:
-	Ui::UI_MapFrameTool ui;
+	Ui::PictureFrame ui;
 };

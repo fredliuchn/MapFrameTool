@@ -1,8 +1,8 @@
-#include "UI_MapFrameTool.h"
+#include "PictureFrame.h"
 #include "QString"
 #include "QMessageBox"
 
-UI_MapFrameTool::UI_MapFrameTool(QWidget* parent/* = 0*/, Qt::WindowFlags f/* = 0*/)
+PictureFrame::PictureFrame(QWidget* parent/* = 0*/, Qt::WindowFlags f/* = 0*/)
 {
 	ui.setupUi(this);
 	m_iMapScale = 4;
@@ -20,11 +20,11 @@ UI_MapFrameTool::UI_MapFrameTool(QWidget* parent/* = 0*/, Qt::WindowFlags f/* = 
 	connect(ui.checkBox_BoolNewPicture, SIGNAL(clicked()), this, SLOT(ChecklineEdit_NewPitcureID()));
 }
 
-UI_MapFrameTool::~UI_MapFrameTool()
+PictureFrame::~PictureFrame()
 {
 }
 
-void UI_MapFrameTool::slot_OnRadioTranStyleCoordCode()
+void PictureFrame::slot_OnRadioTranStyleCoordCode()
 {
 	
 	m_iTransStyle = 1;
@@ -35,7 +35,7 @@ void UI_MapFrameTool::slot_OnRadioTranStyleCoordCode()
 	ClearMapTabCoordCtrlData();
 }
 
-void UI_MapFrameTool::slot_OnRadioTranStyleCodeCoord()
+void PictureFrame::slot_OnRadioTranStyleCodeCoord()
 {
 	m_iTransStyle = 0;
 	m_dCenterLY = 0;
@@ -45,7 +45,7 @@ void UI_MapFrameTool::slot_OnRadioTranStyleCodeCoord()
 	ClearMapTabCoordCtrlData();
 }
 
-void UI_MapFrameTool::slot_OnRadioMapScale100()
+void PictureFrame::slot_OnRadioMapScale100()
 {
 	m_iMapScale = 0;
 	ClearMapTabCoordCtrlData();
@@ -55,7 +55,7 @@ void UI_MapFrameTool::slot_OnRadioMapScale100()
 		ui.lineEdit_OldPitcureID->setText("I50");
 }
 
-void UI_MapFrameTool::slot_OnRadioMapScale50()
+void PictureFrame::slot_OnRadioMapScale50()
 {
 	m_iMapScale = 1;
 	ClearMapTabCoordCtrlData();
@@ -65,7 +65,7 @@ void UI_MapFrameTool::slot_OnRadioMapScale50()
 		ui.lineEdit_OldPitcureID->setText("I501");
 }
 
-void UI_MapFrameTool::slot_OnRadioMapScale25()
+void PictureFrame::slot_OnRadioMapScale25()
 {
 	m_iMapScale = 2;
 	ClearMapTabCoordCtrlData();
@@ -75,7 +75,7 @@ void UI_MapFrameTool::slot_OnRadioMapScale25()
 		ui.lineEdit_OldPitcureID->setText("I5012");
 }
 
-void UI_MapFrameTool::slot_OnRadioMapScale10()
+void PictureFrame::slot_OnRadioMapScale10()
 {
 	m_iMapScale = 3;
 	ClearMapTabCoordCtrlData();
@@ -85,7 +85,7 @@ void UI_MapFrameTool::slot_OnRadioMapScale10()
 		ui.lineEdit_OldPitcureID->setText("I50120");
 }
 
-void UI_MapFrameTool::slot_OnRadioMapScale5()
+void PictureFrame::slot_OnRadioMapScale5()
 {
 	m_iMapScale = 4;
 	ClearMapTabCoordCtrlData();
@@ -95,7 +95,7 @@ void UI_MapFrameTool::slot_OnRadioMapScale5()
 		ui.lineEdit_OldPitcureID->setText("I501201");
 }
 
-void UI_MapFrameTool::slot_OnRadioMapScale25000()
+void PictureFrame::slot_OnRadioMapScale25000()
 {
 	m_iMapScale = 5;
 	ClearMapTabCoordCtrlData();
@@ -105,7 +105,7 @@ void UI_MapFrameTool::slot_OnRadioMapScale25000()
 		ui.lineEdit_OldPitcureID->setText("I5012013");
 }
 
-void UI_MapFrameTool::slot_OnRadioMapScale1()
+void PictureFrame::slot_OnRadioMapScale1()
 {
 	m_iMapScale = 6;
 	ClearMapTabCoordCtrlData();
@@ -115,7 +115,7 @@ void UI_MapFrameTool::slot_OnRadioMapScale1()
 		ui.lineEdit_OldPitcureID->setText("I5012063");
 }
 
-void UI_MapFrameTool::slot_OnCheckUseNewMapCode()
+void PictureFrame::slot_OnCheckUseNewMapCode()
 {
 	if (ui.radioButton_FromPicture->isChecked() == true)
 		ui.checkBox_BoolNewPicture->setEnabled(true);
@@ -126,7 +126,7 @@ void UI_MapFrameTool::slot_OnCheckUseNewMapCode()
 	}
 }
 
-void UI_MapFrameTool::ChecklineEdit_NewPitcureID()
+void PictureFrame::ChecklineEdit_NewPitcureID()
 {
 	if (ui.checkBox_BoolNewPicture->isChecked() == true)
 		ui.lineEdit_NewPitcureID->setEnabled(true);
@@ -134,7 +134,7 @@ void UI_MapFrameTool::ChecklineEdit_NewPitcureID()
 		ui.lineEdit_NewPitcureID->setEnabled(false);
 }
 
-void UI_MapFrameTool::ClearMapTabCoordCtrlData()
+void PictureFrame::ClearMapTabCoordCtrlData()
 {
 	ui.lineEdit_LatBottomLeft->setText("0");
 	ui.lineEdit_LatBottomRight->setText("0");
@@ -154,7 +154,7 @@ void UI_MapFrameTool::ClearMapTabCoordCtrlData()
 	ui.lineEdit_table32->setText("");
 	ui.lineEdit_table33->setText(""); 
 }
-void UI_MapFrameTool::slot_ButtonOK()
+void PictureFrame::slot_ButtonOK()
 {
 	// TODO: Add extra validation here
 	int MapScale;
